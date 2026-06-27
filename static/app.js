@@ -5,7 +5,7 @@ function pymanager() {
         showLogModal: false,
         isEditing: false,
         editingId: null,
-        newScript: { name: '', path: '', args: '', cwd: '', github_url: '', auto_start: false },
+        newScript: { name: '', path: '', args: '', cwd: '', github_url: '', web_url: '', auto_start: false },
         
         currentLogScript: null,
         logs: [],
@@ -110,6 +110,7 @@ function pymanager() {
                 args: script.args,
                 cwd: script.cwd,
                 github_url: script.github_url || '',
+                web_url: script.web_url || '',
                 auto_start: script.auto_start
             };
             this.showAddModal = true;
@@ -118,7 +119,7 @@ function pymanager() {
         openAddModal() {
             this.isEditing = false;
             this.editingId = null;
-            this.newScript = { name: '', path: '', args: '', cwd: '', github_url: '', auto_start: false };
+            this.newScript = { name: '', path: '', args: '', cwd: '', github_url: '', web_url: '', auto_start: false };
             this.showAddModal = true;
         },
 
@@ -136,6 +137,7 @@ function pymanager() {
                             args: this.newScript.args,
                             cwd: this.newScript.cwd,
                             github_url: this.newScript.github_url,
+                            web_url: this.newScript.web_url,
                             auto_start: this.newScript.auto_start
                         })
                     });
@@ -151,6 +153,7 @@ function pymanager() {
                             args: this.newScript.args,
                             cwd: this.newScript.cwd,
                             github_url: this.newScript.github_url,
+                            web_url: this.newScript.web_url,
                             auto_start: this.newScript.auto_start
                         })
                     });

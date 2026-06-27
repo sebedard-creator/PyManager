@@ -46,3 +46,10 @@ Toutes les modifications techniques du projet sont documentées ici.
 - **Mise à niveau UI (CSS Grid) :** Remplacement de la liste `flex` par `CSS Grid` pour afficher exactement 2 colonnes (`1fr 1fr`).
 - **Correction CSS (Scroll Horizontal) :** Élargissement du container à `1600px` et ajout strict de `min-width: 0` sur les `.card`, `.card-info` et `.info-item` pour forcer la troncature (`text-overflow: ellipsis`) des longs chemins de fichiers sans briser la grille.
 - **Correction Poke Minou (Bonus) :** Installation de `python-dotenv` dans l'environnement virtuel de Poke Minou et modification de `config.py` pour qu'il soit 100% autonome sans nécessiter de batch file intermédiaire.
+
+## [v4.1.0] - 2026-06-27 (Polishing & Mobile)
+- **Tri Alphabétique :** Les services sont désormais triés automatiquement par ordre alphabétique via JavaScript.
+- **Ajout champ Web :** Ajout d'un paramètre `web_url` optionnel pour chaque service. Affiche un badge sphère filaire bleue cliquable (transparent).
+- **Ajustements UI :** Bouton "Web" renommé en "LAN". Case "Lancer automatiquement" remontée dans le formulaire.
+- **Support Mobile :** Ajout d'une Media Query (`max-width: 600px`) en CSS pour empiler les éléments des cartes verticalement et cacher les chemins techniques sur cellulaire, sans affecter l'affichage PC.
+- **Documentation :** Création du fichier `README.md` officiel.

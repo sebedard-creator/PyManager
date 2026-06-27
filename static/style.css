@@ -218,6 +218,28 @@ body {
 .action-stop:hover { background: rgba(220, 38, 38, 0.1); border-color: transparent; }
 .action-web:hover { background: rgba(37, 99, 235, 0.1); border-color: transparent; }
 
+/* Mobile Layout Fixes */
+@media (max-width: 600px) {
+    .card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .card-top {
+        flex-wrap: wrap;
+    }
+    .card-info {
+        display: none;
+    }
+    .card-actions {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+    }
+}
+
 /* Empty state */
 .empty-state {
     padding: 64px 20px;

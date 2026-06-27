@@ -32,6 +32,7 @@ class ScriptConfig(BaseModel):
     cwd: str = ""
     port: str = ""
     github_url: str = ""
+    web_url: str = ""
     auto_start: bool
 
 class ScriptStatus(BaseModel):
@@ -42,6 +43,7 @@ class ScriptStatus(BaseModel):
     cwd: str = ""
     port: str = ""
     github_url: str = ""
+    web_url: str = ""
     auto_start: bool
     is_running: bool
     pid: Optional[int] = None
@@ -322,6 +324,7 @@ async def get_scripts():
             cwd=s.get("cwd", ""),
             port=s.get("port", ""),
             github_url=s.get("github_url", ""),
+            web_url=s.get("web_url", ""),
             auto_start=s["auto_start"],
             is_running=is_running,
             pid=pid,

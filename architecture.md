@@ -18,7 +18,7 @@ L'objectif est de développer un tableau de bord web local (Dashboard) permettan
 
 ### A. Persistance et Configuration Dynamique
 - L'interface web doit comporter un bouton "Ajouter un script".
-- Ce bouton ouvre un formulaire demandant : Nom du service, Chemin absolu du fichier `.py`, Dossier de travail, Arguments, un lien GitHub, et un toggle "Démarrage automatique (Auto-start)".
+- Ce bouton ouvre un formulaire demandant : Nom du service, Chemin absolu du fichier `.py`, Dossier de travail, Arguments, un lien GitHub, un lien Web externe, et un toggle "Démarrage automatique (Auto-start)".
 - Ces données sont sauvegardées dans un fichier `config.json`.
 - Le backend lit ce fichier au démarrage pour populer l'interface.
 

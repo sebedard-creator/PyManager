@@ -7,6 +7,7 @@
 - **Refonte UI en 2 colonnes :** Utilisation de CSS Grid pour diviser la liste des services en 2 colonnes (sur les écrans larges) afin d'optimiser l'espace monumental.
 - **Correction du Scroll Horizontal :** Application de `min-width: 0` sur les éléments flex de l'UI pour forcer la troncature des chemins de fichiers très longs, gardant l'UI stable et sans barre de défilement horizontale.
 - **Correction Autonome de Poke Minou :** Installation de `python-dotenv` dans l'environnement de Poke Minou afin qu'il puisse charger `.env` par lui-même, rendant son exécution directe via PyManager robuste.
+- **Polissage & Mobile :** Ajout d'un champ "Lien Web", tri alphabétique des services, et support parfait pour l'affichage mobile via une Media Query CSS protectrice. Un `README.md` a également été généré.
 
 ## État actuel
 - PyManager gère désormais les processus d'une façon experte et hyper-sécurisée.

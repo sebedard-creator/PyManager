@@ -5,6 +5,9 @@
         "path": "Y:/EffetPompeux/leffet_pompeux/venv/Scripts/python.exe",
         "args": "Y:/EffetPompeux/leffet_pompeux/leffet_pompeux.py",
         "cwd": "Y:/EffetPompeux/leffet_pompeux",
+        "port": "",
+        "github_url": "https://github.com/sebedard-creator/leffet_pompeux",
+        "web_url": "https://leffet-pompeux.onrender.com/",
         "auto_start": true
     },
     {
