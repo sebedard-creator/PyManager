@@ -1,0 +1,109 @@
+[
+    {
+        "id": "effet-pompeux-1782501861450",
+        "name": "Effet Pompeux",
+        "path": "Y:/EffetPompeux/leffet_pompeux/venv/Scripts/python.exe",
+        "args": "Y:/EffetPompeux/leffet_pompeux/leffet_pompeux.py",
+        "cwd": "Y:/EffetPompeux/leffet_pompeux",
+        "auto_start": true
+    },
+    {
+        "id": "fuck-cloud-services-1782505436213",
+        "name": "Fuck Cloud Services",
+        "path": "Y:/FuckCloudServices/.env/Scripts/python.exe",
+        "args": "Y:/FuckCloudServices/backup_service.py",
+        "cwd": "Y:/FuckCloudServices",
+        "auto_start": true
+    },
+    {
+        "id": "kylo-vox-1782505924063",
+        "name": "Kylo Vox",
+        "path": "Y:/KyloFox/kylofox/kylofox/.venv/Scripts/python.exe",
+        "args": "Y:/KyloFox/kylofox/kylofox/app.py",
+        "cwd": "Y:/KyloFox/kylofox/kylofox",
+        "port": "",
+        "auto_start": false
+    },
+    {
+        "id": "omni-prompt-1782507705513",
+        "name": "Omni Prompt",
+        "path": "Y:/Omni Prompt/.venv/Scripts/python.exe",
+        "args": "\"Y:/Omni Prompt/app.py\"",
+        "cwd": "Y:/Omni Prompt",
+        "port": "",
+        "auto_start": true
+    },
+    {
+        "id": "pfx-extractor-1782508275890",
+        "name": "PFX Extractor",
+        "path": "Y:/PFX Extractor/.venv/Scripts/python.exe",
+        "args": "\"Y:/PFX Extractor/app_local.py\"",
+        "cwd": "Y:/PFX Extractor",
+        "port": "",
+        "auto_start": true
+    },
+    {
+        "id": "poke-minou-1782509171517",
+        "name": "Poke Minou",
+        "path": "Y:/PokeMinou/Windows/venv/Scripts/python.exe",
+        "args": "Y:/PokeMinou/Windows/main.py",
+        "cwd": "Y:/PokeMinou/Windows",
+        "port": "",
+        "github_url": "https://github.com/sebedard-creator/PokeMinou",
+        "auto_start": true
+    },
+    {
+        "id": "printbot-1782511356082",
+        "name": "PrintBot",
+        "path": "Y:/PrintBot/server/.venv/Scripts/python.exe",
+        "args": "Y:/PrintBot/server/app.py",
+        "cwd": "Y:/PrintBot/server",
+        "port": "",
+        "auto_start": true
+    },
+    {
+        "id": "protools-swissknife-1782511454944",
+        "name": "ProTools SwissKnife",
+        "path": "Y:/PT SK 2.0/venv/Scripts/python.exe",
+        "args": "\"Y:/PT SK 2.0/app.py\"",
+        "cwd": "Y:/PT SK 2.0",
+        "port": "",
+        "auto_start": true
+    },
+    {
+        "id": "walla-gen-1782511557891",
+        "name": "Walla Gen",
+        "path": "Y:/quebec-audio-gen/.venv/Scripts/python.exe",
+        "args": "Y:/quebec-audio-gen/app.py",
+        "cwd": "Y:/quebec-audio-gen",
+        "port": "",
+        "auto_start": true
+    },
+    {
+        "id": "sebed-search-1782511666923",
+        "name": "Sebed Search",
+        "path": "Y:/SebedSearch/.venv/Scripts/python.exe",
+        "args": "-m uvicorn app.main:app --host 0.0.0.0 --port 7777",
+        "cwd": "Y:/SebedSearch",
+        "port": "",
+        "auto_start": true
+    },
+    {
+        "id": "voice-clone-1782511906091",
+        "name": "Voice Clone",
+        "path": "Y:/VOICECLONE/.venv/Scripts/python.exe",
+        "args": "Y:/VOICECLONE/app.py",
+        "cwd": "Y:/VOICECLONE",
+        "port": "",
+        "auto_start": true
+    },
+    {
+        "id": "os-tts-1782512163934",
+        "name": "OS TTS",
+        "path": "Y:/TTS/.venv/Scripts/python.exe",
+        "args": "Y:/TTS/app.py",
+        "cwd": "Y:/TTS",
+        "port": "",
+        "auto_start": false
+    }
+]

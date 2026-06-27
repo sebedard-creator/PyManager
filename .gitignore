@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+
+# Environment Variables (SÉCURITÉ)
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+
+# PiManager logs
+logs/
