@@ -4,6 +4,8 @@ PyManager est un tableau de bord web local (Dashboard) ultra-léger permettant d
 
 Agissant comme un véritable "gestionnaire de zoo" pour vos processus en arrière-plan, PyManager s'assure que vos services (serveurs web, bots, pipelines d'IA) tournent de manière fiable et transparente.
 
+![Aperçu Principal](screenshot1.PNG)
+
 ## ✨ Fonctionnalités Principales
 
 *   **Orchestration Centralisée** : Lancez et arrêtez tous vos scripts Python (ou `.bat`) depuis une seule interface web esthétique et réactive.
@@ -14,6 +16,8 @@ Agissant comme un véritable "gestionnaire de zoo" pour vos processus en arrièr
 *   **Démarrage Automatique (Daemon)** : Configurez des services en `auto_start` pour qu'ils soient ressuscités automatiquement lors du démarrage de PyManager.
 *   **Interface Moderne (UI/UX)** : Une grille dynamique (CSS Grid), un mode sombre/clair persistant, et un design minimaliste garantissant l'affichage sans défilement horizontal (auto-troncature des longs chemins).
 *   **Intégration GitHub** : Liez directement vos services à leurs dépôts GitHub via un champ dédié, affichant un badge officiel dans l'interface.
+
+![Aperçu Configuration](screenshot2.PNG)
 
 ## 🛠️ Stack Technologique
 

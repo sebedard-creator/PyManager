@@ -9,7 +9,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/style.css?v=7">
+    <link rel="stylesheet" href="/static/style.css?v=8">
     
     <!-- Prevent theme flash -->
     <script>
@@ -83,19 +83,17 @@
                     
                     <!-- Actions -->
                     <div class="card-actions">
-                        <button class="btn action-start" @click="startScript(script.id)" x-show="!script.is_running" title="Démarrer">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                            Start
+                        <button class="btn btn-icon action-start" x-show="!script.is_running" @click="startScript(script.id)" title="Démarrer le service">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
                         </button>
-                        <button class="btn action-stop" @click="stopScript(script.id)" x-show="script.is_running" x-cloak title="Arrêter">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
-                            Stop
+                        
+                        <button class="btn btn-icon action-stop" x-show="script.is_running" @click="stopScript(script.id)" title="Arrêter le service">
+                            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12"/></svg>
                         </button>
                         
                         <!-- Auto Web URL -->
-                        <a :href="script.discovered_port ? (window.location.protocol + '//' + window.location.hostname + ':' + script.discovered_port) : script.discovered_url" target="_blank" rel="noopener" class="btn action-web" x-show="script.discovered_url || script.discovered_port" x-cloak title="Ouvrir le WebUI">
-                            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            LAN
+                        <a :href="script.discovered_port ? (window.location.protocol + '//' + window.location.hostname + ':' + script.discovered_port) : script.discovered_url" target="_blank" rel="noopener" class="btn btn-icon action-web" x-show="script.discovered_url || script.discovered_port" x-cloak title="Ouvrir le WebUI">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                         </a>
                         
                         <button class="btn btn-icon" @click="openLogModal(script)" title="Voir les logs">
