@@ -17,3 +17,6 @@ venv/
 
 # PiManager logs
 logs/
+
+# Local configuration
+config.json

@@ -108,5 +108,16 @@
         "cwd": "Y:/TTS",
         "port": "",
         "auto_start": false
+    },
+    {
+        "id": "ambiplex-1782827386887",
+        "name": "AmbiPlex",
+        "path": "Y:/AmbiPlex/venv/Scripts/python.exe",
+        "args": "-W ignore web.py",
+        "cwd": "Y:/AmbiPlex",
+        "port": "",
+        "github_url": "https://github.com/sebedard-creator/AmbiPlex",
+        "web_url": "",
+        "auto_start": false
     }
 ]
