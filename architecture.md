@@ -20,11 +20,11 @@ L'objectif est de développer un tableau de bord web local (Dashboard) permettan
 - L'interface web doit comporter un bouton "Ajouter un script".
 - Ce bouton ouvre un formulaire demandant : Nom du service, Chemin absolu du fichier `.py`, Dossier de travail, Arguments, un lien GitHub, un lien Web externe, et un toggle "Démarrage automatique (Auto-start)".
 - Ces données sont sauvegardées dans un fichier `config.json`.
-- Le backend lit ce fichier au démarrage pour populer l'interface.
+- Le backend lit ce fichier au démarrage pour populer l'interface. **Note de Performance :** La lecture du `config.json` est mise en cache en mémoire et n'est relue du disque dur que si la date de modification du fichier change, réduisant drastiquement l'I/O.
 
 ### B. Cycle de vie des processus et Anti-Zombies
 - Au démarrage du serveur FastAPI, une routine lit `config.json` et démarre automatiquement tous les scripts marqués `auto_start: true`.
-- **Radar Anti-Zombies :** Avant chaque démarrage automatique et lors des rafraîchissements, PyManager scanne `psutil.process_iter` en normalisant les barres obliques (`/` vs `\`) et les arguments. S'il trouve un processus existant correspondant au script, il "l'adopte" silencieusement au lieu de créer un doublon.
+- **Radar Anti-Zombies :** Avant chaque démarrage automatique et lors des rafraîchissements, PyManager scanne `psutil.process_iter` en normalisant les barres obliques (`/` vs `\`) et les arguments. S'il trouve un processus existant correspondant au script, il "l'adopte" silencieusement au lieu de créer un doublon. **Note de Performance :** Pour minimiser l'impact CPU, le scan système des zombies est mis en cache (throttled à 10 secondes par service inactif).
 - L'interface affiche l'état en temps réel de chaque script (Pastille Verte = Actif/PID existant, Pastille Rouge = Inactif).
 - L'arrêt d'un script utilise une fonction récursive `kill_process_tree` pour tuer le processus parent et tous ses enfants (pour éviter de laisser des fantômes).
 

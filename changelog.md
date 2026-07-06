@@ -53,3 +53,8 @@ Toutes les modifications techniques du projet sont documentées ici.
 - **Ajustements UI :** Bouton "Web" renommé en "LAN". Case "Lancer automatiquement" remontée dans le formulaire.
 - **Support Mobile :** Ajout d'une Media Query (`max-width: 600px`) en CSS pour empiler les éléments des cartes verticalement et cacher les chemins techniques sur cellulaire, sans affecter l'affichage PC.
 - **Documentation :** Création du fichier `README.md` officiel.
+
+## [v4.2.0] - 2026-07-06 (Performance & Caching)
+- **Mise en cache `config.json` :** Réduction de l'I/O disque en mettant en cache le contenu et en validant le timestamp (`mtime`).
+- **Throttling Anti-Zombies :** Le scan `psutil` complet du système ne se fait désormais qu'une fois toutes les 10 secondes maximum par service, éliminant la surconsommation CPU.
+- **Cache de Ports :** Une fois qu'un port réseau est détecté par `psutil`, il est sauvegardé en mémoire pour la durée de vie du processus, évitant de re-scanner les connexions réseaux.

@@ -60,21 +60,38 @@ class ProcessState:
         self.task: asyncio.Task | None = None
         self.discovered_url: Optional[str] = None
         self.discovered_port: Optional[str] = None
+        self.last_zombie_check: float = 0.0
 
 processes: Dict[str, ProcessState] = collections.defaultdict(ProcessState)
 
+_config_cache = None
+_config_mtime = 0.0
+
 def load_config() -> List[Dict[str, Any]]:
+    global _config_cache, _config_mtime
     if not os.path.exists(CONFIG_FILE):
         return []
-    with open(CONFIG_FILE, "r", encoding="utf-8") as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError:
-            return []
+    try:
+        mtime = os.path.getmtime(CONFIG_FILE)
+        if _config_cache is not None and mtime == _config_mtime:
+            return _config_cache
+        with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            _config_cache = data
+            _config_mtime = mtime
+            return data
+    except Exception:
+        return []
 
 def save_config(config: List[Dict[str, Any]]):
+    global _config_cache, _config_mtime
     with open(CONFIG_FILE, "w", encoding="utf-8") as f:
         json.dump(config, f, indent=4)
+    _config_cache = config
+    try:
+        _config_mtime = os.path.getmtime(CONFIG_FILE)
+    except Exception:
+        pass
 
 def kill_process_tree(pid: int):
     try:
@@ -281,11 +298,17 @@ async def get_scripts():
                 
         # Si on n'a rien, on cherche un zombie
         if not is_running:
-            zombie_pid = find_zombie_pid(s)
-            if zombie_pid:
-                pid = zombie_pid
-                is_running = True
-                if state:
+            import time
+            current_time = time.time()
+            if not state:
+                state = processes[script_id]
+                
+            if current_time - state.last_zombie_check > 10.0:
+                state.last_zombie_check = current_time
+                zombie_pid = find_zombie_pid(s)
+                if zombie_pid:
+                    pid = zombie_pid
+                    is_running = True
                     state.pid = pid
         
         detected_port = state.discovered_port if state else None
@@ -300,16 +323,21 @@ async def get_scripts():
                     if state:
                         state.pid = None
                 else:
-                    # Attempt to find listening ports via psutil
-                    ports = []
-                    try:
-                        for conn in proc.connections(kind='inet'):
-                            if conn.status == psutil.CONN_LISTEN:
-                                ports.append(str(conn.laddr.port))
-                    except Exception:
-                        pass
-                    if ports:
-                        detected_port = ",".join(list(set(ports)))
+                    if state and state.discovered_port:
+                        detected_port = state.discovered_port
+                    else:
+                        # Attempt to find listening ports via psutil
+                        ports = []
+                        try:
+                            for conn in proc.connections(kind='inet'):
+                                if conn.status == psutil.CONN_LISTEN:
+                                    ports.append(str(conn.laddr.port))
+                        except Exception:
+                            pass
+                        if ports:
+                            detected_port = ",".join(list(set(ports)))
+                            if state:
+                                state.discovered_port = detected_port
             except Exception:
                 is_running = False
                 pid = None
