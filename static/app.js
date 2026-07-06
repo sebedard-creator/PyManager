@@ -7,6 +7,14 @@ function pymanager() {
         editingId: null,
         newScript: { name: '', path: '', args: '', cwd: '', github_url: '', web_url: '', auto_start: false },
         
+        searchQuery: '',
+        get filteredScripts() {
+            const q = this.searchQuery.trim();
+            if (q === '') return this.scripts;
+            // Ne filtrer QUE par PID
+            return this.scripts.filter(s => s.pid && s.pid.toString().includes(q));
+        },
+        
         currentLogScript: null,
         logs: [],
         ws: null,
